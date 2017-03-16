@@ -71,6 +71,8 @@ public class TestGetColumnTotal {
 			{
 				one(values).getRowCount();
 				will(returnValue(4));
+				one(values).getColumnCount();
+				will(returnValue(4));
 				one(values).getValue(0, 1);
 				will(returnValue(3));
 				one(values).getValue(1, 1);
@@ -97,6 +99,8 @@ public class TestGetColumnTotal {
 			{
 				one(values).getRowCount();
 				will(returnValue(3));
+				one(values).getColumnCount();
+				will(returnValue(4));
 				one(values).getValue(0, 1);
 				will(returnValue(3.3));
 				one(values).getValue(1, 1);
@@ -121,6 +125,8 @@ public class TestGetColumnTotal {
 			{
 			one(values).getRowCount();
 			will(returnValue(0));
+			one(values).getColumnCount();
+			will(returnValue(4));
 			}
 		});
 		
@@ -149,6 +155,8 @@ public class TestGetColumnTotal {
 			{
 				one(values).getRowCount();
 				will(returnValue(3));
+				one(values).getColumnCount();
+				will(returnValue(4));
 				one(values).getValue(0, 1);
 				will(returnValue(null));
 				one(values).getValue(1, 1);

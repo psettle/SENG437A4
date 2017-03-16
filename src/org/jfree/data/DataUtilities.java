@@ -45,6 +45,8 @@
 
 package org.jfree.data;
 
+import java.security.InvalidParameterException;
+
 import org.jfree.data.general.DatasetUtilities;
 
 /**
@@ -65,12 +67,25 @@ public abstract class DataUtilities {
      * @return The sum of the values in the specified column.
      */
     public static double calculateColumnTotal(Values2D data, int column) {
-        double total = 0.0;
+        if(data == null) {
+        	throw new InvalidParameterException();
+        }
+    	
+    	double total = 0.0;
         int rowCount = data.getRowCount();
+        
+        int columnCount = data.getColumnCount();
+        
+        if(column < 0 || column >= columnCount) {
+        	throw new IndexOutOfBoundsException();
+        }
+        
         for (int r = 0; r < rowCount; r++) {
             Number n = data.getValue(r, column);
             if (n != null) {
                 total += n.doubleValue();   
+            } else {
+            	throw new InvalidParameterException();
             }
         }
         return total;
@@ -88,12 +103,26 @@ public abstract class DataUtilities {
      * @return The total of the values in the specified row.
      */
     public static double calculateRowTotal(Values2D data, int row) {
+    	if(data == null) {
+        	throw new InvalidParameterException();
+        }
+    	
         double total = 0.0;
         int columnCount = data.getColumnCount();
+        
+        int rowCount = data.getRowCount();
+        
+        if(row < 0 || row >= rowCount) {
+        	throw new IndexOutOfBoundsException();
+        }
+        
+        
         for (int c = 0; c < columnCount; c++) {
             Number n = data.getValue(row, c);
             if (n != null) {
                 total += n.doubleValue();   
+            } else {
+            	throw new InvalidParameterException();
             }
         }
         return total;
@@ -172,8 +201,13 @@ public abstract class DataUtilities {
      */
     public static KeyedValues getCumulativePercentages(KeyedValues data) {
         if (data == null) {
-            throw new IllegalArgumentException("Null 'data' argument.");   
+            throw new InvalidParameterException("Null 'data' argument.");   
         }
+        
+        if(data.getItemCount() == 0) {
+        	throw new InvalidParameterException();
+        }
+        
         DefaultKeyedValues result = new DefaultKeyedValues();
         double total = 0.0;
         for (int i = 0; i < data.getItemCount(); i++) {
