@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.jfree.data.DataUtilities;
 import org.jfree.data.KeyedValues;
-import java.awt.List;
+import java.util.List;
 import java.util.Arrays;
 
 import org.jmock.Expectations;
@@ -45,7 +45,7 @@ public class TestGetCumulativePercentages {
 		mockingContext.checking(new Expectations() {
 			{
 			allowing(values).getKeys();
-			will(returnValue(new List() ));
+			will(returnValue(Arrays.asList()));
 			allowing(values).getItemCount();
 			will(returnValue(0));
 			}
@@ -66,20 +66,19 @@ public class TestGetCumulativePercentages {
 			will(returnValue(3));
 			allowing(values).getKeys();
 			will(returnValue(Arrays.asList(0,1,2) ));
-			atLeast(1).of(values).getValue(0);
+			atLeast(1).of(values).getValue(new Integer(0));
 			will(returnValue(1));
-			atLeast(1).of(values).getValue(1);
+			atLeast(1).of(values).getValue(new Integer(1));
 			will(returnValue(2));
-			atLeast(1).of(values).getValue(2);
+			atLeast(1).of(values).getValue(new Integer(2));
 			will(returnValue(3));
 			}
 		});
 		
 		KeyedValues result = DataUtilities.getCumulativePercentages(this.values);
-		assertEquals("Testing result size with integer KeyedValues",
-				3, result.getItemCount());
 		
-		assertEquals("Testing cumulative percentages with integer KeyedValues",
+		
+		assertDoubleListEquals("Testing cumulative percentages with integer KeyedValues",
 						Arrays.asList((1.0/6), (3.0/6), (6.0/6)), 
 								Arrays.asList(
 								result.getValue(result.getKey(0)),
@@ -102,37 +101,21 @@ public class TestGetCumulativePercentages {
 			allowing(values).getItemCount();
 			will(returnValue(3));
 			
-			atLeast(1).of(values).getValue(-3);
+			atLeast(1).of(values).getValue(new Integer(-3));
 			will(returnValue(1));
-			atLeast(1).of(values).getValue(-2);
+			atLeast(1).of(values).getValue(new Integer(-2));
 			will(returnValue(2));
-			atLeast(1).of(values).getValue(-1);
+			atLeast(1).of(values).getValue(new Integer(-1));
 			will(returnValue(3));
-			
-			allowing(values).getValue(0);
-			will(returnValue(null));
-			allowing(values).getValue(1);
-			will(returnValue(null));
-			allowing(values).getValue(2);
-			will(returnValue(null));
-			
-			allowing(values).getKey(0);
-			will(returnValue(-3));
-			allowing(values).getKey(1);
-			will(returnValue(-2));
-			allowing(values).getKey(2);
-			will(returnValue(-1));
 			}
 		});
 		
 		KeyedValues result = DataUtilities.getCumulativePercentages(this.values);
-		assertEquals("Testing result size with integer KeyedValues",
-				3, result.getItemCount());
-		
+	
 		assertEquals("Testing returned keys with negative integer keys in KeyedValues", Arrays.asList(-3,-2,-1),
 				result.getKeys());
 		
-		assertEquals("Testing cumulative percentages with integer KeyedValues",
+		assertDoubleListEquals("Testing cumulative percentages with integer KeyedValues",
 						Arrays.asList((1.0/6), (3.0/6), (6.0/6)), 
 								Arrays.asList(
 								result.getValue(result.getKey(0)),
@@ -154,33 +137,24 @@ public class TestGetCumulativePercentages {
 			allowing(values).getItemCount();
 			will(returnValue(3));
 			
-			atLeast(1).of(values).getValue(0);
+			atLeast(1).of(values).getValue(new Integer(0));
 			will(returnValue(1.1));
-			atLeast(1).of(values).getValue(1);
+			atLeast(1).of(values).getValue(new Integer(1));
 			will(returnValue(2.2));
-			atLeast(1).of(values).getValue(2);
+			atLeast(1).of(values).getValue(new Integer(2));
 			will(returnValue(3.3));
-			
-			allowing(values).getKey(0);
-			will(returnValue(0));
-			allowing(values).getKey(1);
-			will(returnValue(1));
-			allowing(values).getKey(2);
-			will(returnValue(2));
 			}
 		});
 		
 		KeyedValues result = DataUtilities.getCumulativePercentages(this.values);
-		assertEquals("Testing result size with floating-point KeyedValues",
-				3, result.getItemCount());
-		
-		assertEquals("Testing cumulative percentages with floating-point KeyedValues",
+	
+		assertDoubleListEquals("Testing cumulative percentages with floating-point KeyedValues",
 						Arrays.asList((1.1/6.6), (3.3/6.6), (6.6/6.6)), 
 							Arrays.asList(
 							result.getValue(result.getKey(0)),
 							result.getValue(result.getKey(1)),
 							result.getValue(result.getKey(2)) ));
-
+		
 	}
 
 	/**
@@ -194,25 +168,24 @@ public class TestGetCumulativePercentages {
 			{
 			allowing(values).getKeys();
 			will(returnValue(Arrays.asList(4,5,6) ));
-			
-			atLeast(1).of(values).getValue(4);
+			allowing(values).getItemCount();
+			will(returnValue(3));
+			atLeast(1).of(values).getValue(new Integer(4));
 			will(returnValue(2));
-			atLeast(1).of(values).getValue(5);
+			atLeast(1).of(values).getValue(new Integer(5));
 			will(returnValue(4));
-			atLeast(1).of(values).getValue(6);
+			atLeast(1).of(values).getValue(new Integer(6));
 			will(returnValue(6));
 			}
 		});
 		
 		KeyedValues result = DataUtilities.getCumulativePercentages(this.values);
-		assertEquals("Testing result size with integer KeyedValues",
-				3, result.getItemCount());
 		
 		//ASSUME that the result generated has the same keys as the input.
 		assertEquals("Testing returned keys with integer KeyedValues", Arrays.asList(4,5,6),
 				result.getKeys());
 		
-		assertEquals("Testing cumulative percentages with integer KeyedValues",
+		assertDoubleListEquals("Testing cumulative percentages with integer KeyedValues",
 						Arrays.asList((2.0/12), (6.0/12), (12.0/12)), 
 								Arrays.asList(
 								result.getValue(result.getKey(0)),
@@ -235,15 +208,10 @@ public class TestGetCumulativePercentages {
 			allowing(values).getItemCount();
 			will(returnValue(2));
 			
-			allowing(values).getValue(0);
+			allowing(values).getValue(new Integer(0));
 			will(returnValue(-1));
-			allowing(values).getValue(1);
+			allowing(values).getValue(new Integer(1));
 			will(returnValue(-1));
-			
-			allowing(values).getKey(0);
-			will(returnValue(0));
-			allowing(values).getKey(1);
-			will(returnValue(1));
 			}
 		});
 
@@ -265,15 +233,10 @@ public class TestGetCumulativePercentages {
 			allowing(values).getItemCount();
 			will(returnValue(2));
 			
-			allowing(values).getValue(0);
+			allowing(values).getValue(new Integer(0));
 			will(returnValue(0));
-			allowing(values).getValue(1);
+			allowing(values).getValue(new Integer(1));
 			will(returnValue(0));
-			
-			allowing(values).getKey(0);
-			will(returnValue(0));
-			allowing(values).getKey(1);
-			will(returnValue(1));
 			}
 		});
 
@@ -295,15 +258,10 @@ public class TestGetCumulativePercentages {
 			allowing(values).getItemCount();
 			will(returnValue(2));
 			
-			allowing(values).getValue(0);
+			allowing(values).getValue(new Integer(0));
 			will(returnValue(null));
-			allowing(values).getValue(1);
+			allowing(values).getValue(new Integer(1));
 			will(returnValue(null));
-			
-			allowing(values).getKey(0);
-			will(returnValue(0));
-			allowing(values).getKey(1);
-			will(returnValue(1));
 			}
 		});
 
@@ -324,19 +282,28 @@ public class TestGetCumulativePercentages {
 			allowing(values).getItemCount();
 			will(returnValue(2));
 			
-			allowing(values).getValue(0);
+			allowing(values).getValue(new Integer(0));
 			will(returnValue(Double.NaN));
-			allowing(values).getValue(1);
+			allowing(values).getValue(new Integer(1));
 			will(returnValue(Double.NaN));
-			
-			allowing(values).getKey(0);
-			will(returnValue(0));
-			allowing(values).getKey(1);
-			will(returnValue(1));
 			}
 		});
 
 		DataUtilities.getCumulativePercentages(this.values);
 
+	}
+	
+	/**
+	 * Asserts that two lists of numbers are equal
+	 * @param message
+	 * @param expected
+	 * @param actual
+	 */
+	public static void assertDoubleListEquals(String message, List<Number> expected, List<Number> actual) {
+		assertTrue(message, expected.size() == actual.size());
+		
+		for(int i = 0; i < expected.size(); i++) {
+			assertEquals(message, expected.get(i).doubleValue(), actual.get(i).doubleValue(), 0.000001d);
+		}
 	}
 }

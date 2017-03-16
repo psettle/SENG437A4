@@ -218,16 +218,20 @@ public abstract class DataUtilities {
         
         for(Comparable key : keys) {
         	Number num = data.getValue(key);
-        	if(num != null) {
+        	if(num != null && num.doubleValue() > 0.0) {
         		total += num.doubleValue();
+        	} else {
+        		throw new InvalidParameterException();
         	}
         }
         DefaultKeyedValues result = new DefaultKeyedValues();
         double runningTotal = 0.0;
         for(Comparable key : keys) {
         	Number num = data.getValue(key);
-        	if(num != null) {
+        	if(num != null && num.doubleValue() > 0.0) {
         		runningTotal += num.doubleValue();
+        	} else {
+        		throw new InvalidParameterException();
         	}
         	result.addValue(key, new Double(runningTotal / total));
         }
