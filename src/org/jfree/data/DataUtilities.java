@@ -46,6 +46,7 @@
 package org.jfree.data;
 
 import java.security.InvalidParameterException;
+import java.util.List;
 
 import org.jfree.data.general.DatasetUtilities;
 
@@ -211,22 +212,26 @@ public abstract class DataUtilities {
         	throw new InvalidParameterException();
         }
         
-        DefaultKeyedValues result = new DefaultKeyedValues();
         double total = 0.0;
-        for (int i = 0; i < data.getItemCount(); i++) {
-            Number v = data.getValue(i);
-            if (v != null) {
-                total = total + v.doubleValue();
-            }
+        
+        List<Comparable> keys = data.getKeys();
+        
+        for(Comparable key : keys) {
+        	Number num = data.getValue(key);
+        	if(num != null) {
+        		total += num.doubleValue();
+        	}
         }
+        DefaultKeyedValues result = new DefaultKeyedValues();
         double runningTotal = 0.0;
-        for (int i = 0; i < data.getItemCount(); i++) {
-            Number v = data.getValue(i);
-            if (v != null) {
-                runningTotal = runningTotal + v.doubleValue();
-            }
-            result.addValue(data.getKey(i), new Double(runningTotal / total));
+        for(Comparable key : keys) {
+        	Number num = data.getValue(key);
+        	if(num != null) {
+        		runningTotal += num.doubleValue();
+        	}
+        	result.addValue(key, new Double(runningTotal / total));
         }
+        
         return result;
     }
 

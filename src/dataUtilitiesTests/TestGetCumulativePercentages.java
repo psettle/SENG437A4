@@ -57,29 +57,21 @@ public class TestGetCumulativePercentages {
 	/**
 	 * This test covers normal integer inputs for data.
 	 */
-	@Test(timeout=DEFAULT_TIMEOUT)
+	@Test//(timeout=DEFAULT_TIMEOUT)
 	public void test_Normal_IntegerValues_KeyedValues() {
 		
 		mockingContext.checking(new Expectations() {
 			{
-			allowing(values).getKeys();
-			will(returnValue(Arrays.asList(0,1,2) ));
 			allowing(values).getItemCount();
 			will(returnValue(3));
-			
+			allowing(values).getKeys();
+			will(returnValue(Arrays.asList(0,1,2) ));
 			atLeast(1).of(values).getValue(0);
 			will(returnValue(1));
 			atLeast(1).of(values).getValue(1);
 			will(returnValue(2));
 			atLeast(1).of(values).getValue(2);
 			will(returnValue(3));
-			
-			allowing(values).getKey(0);
-			will(returnValue(0));
-			allowing(values).getKey(1);
-			will(returnValue(1));
-			allowing(values).getKey(2);
-			will(returnValue(2));
 			}
 		});
 		
@@ -202,30 +194,12 @@ public class TestGetCumulativePercentages {
 			{
 			allowing(values).getKeys();
 			will(returnValue(Arrays.asList(4,5,6) ));
-			allowing(values).getItemCount();
-			will(returnValue(3));
-			
-			allowing(values).getValue(0);
-			will(returnValue(null));
-			allowing(values).getValue(1);
-			will(returnValue(null));
-			allowing(values).getValue(2);
-			will(returnValue(null));
-			allowing(values).getValue(3);
-			will(returnValue(null));
 			
 			atLeast(1).of(values).getValue(4);
 			will(returnValue(2));
 			atLeast(1).of(values).getValue(5);
 			will(returnValue(4));
 			atLeast(1).of(values).getValue(6);
-			will(returnValue(6));
-			
-			allowing(values).getKey(0);
-			will(returnValue(4));
-			allowing(values).getKey(1);
-			will(returnValue(5));
-			allowing(values).getKey(2);
 			will(returnValue(6));
 			}
 		});
