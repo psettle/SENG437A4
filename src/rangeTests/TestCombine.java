@@ -6,6 +6,8 @@ import org.jfree.data.Range;
 import org.junit.Before;
 import org.junit.Test;
 
+import junit.runner.Version;
+
 public class TestCombine {
 private static final int DEFAULT_TIMEOUT = 2000;
 	
@@ -21,6 +23,7 @@ private static final int DEFAULT_TIMEOUT = 2000;
 	 */
 	@Test(timeout=DEFAULT_TIMEOUT) 
 	public void testNullSecondArg() {
+		System.out.println(Version.id());
 		assertTrue("The non-null range was not returned", Range.combine(range, null) == range);
 	}
 	
