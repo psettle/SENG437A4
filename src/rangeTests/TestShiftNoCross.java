@@ -55,11 +55,13 @@ public class TestShiftNoCross {
 	
 	/**
 	 * This tests shifting a range that is below zero towards and past 0
+	 * should not extend past 0.
 	 */
 	@Test(timeout=DEFAULT_TIMEOUT)
 	public void testSubZeroRangePositiveShiftBlocksAtZero() {
 		this.subZeroSetup();
-		assertEquals("Testing positibve shift past zero of a sub zero range", new Range(-5, 0), Range.shift(this.range, 80000000));
+		assertEquals("Testing positive shift past zero of a sub zero range", 
+				new Range(0.0, 0.0), Range.shift(this.range, 80));
 	}
 
 	/*
@@ -90,12 +92,13 @@ public class TestShiftNoCross {
 	}
 	
 	/**
-	 * This tests a negative shift of an above zero range past zero
+	 * This tests a negative shift of an above zero range past zero.
+	 * Should not allow the range to cross zero according to specification.
 	 */
 	@Test(timeout=DEFAULT_TIMEOUT) 
 	public void testPastZeroRangeNegativeShiftBlocksAtZero() {
 		this.pastZeroSetup();
-		assertEquals("Testing shift past zero of a positive range", new Range(0, 3), Range.shift(this.range, -5));
+		assertEquals("Testing shift past zero of a positive range", new Range(0, 2.0), Range.shift(this.range, -5));
 	}
 	
 	/**
@@ -122,7 +125,7 @@ public class TestShiftNoCross {
 	@Test(timeout=DEFAULT_TIMEOUT)
 	public void testSpanningRangePositiveShiftBlocksAtZero() {
 		this.spanningSetup();
-		assertEquals("Test small posivite shift of spanning range", new Range(0, 4), Range.shift(this.range, 3));
+		assertEquals("Test small posivite shift of spanning range", new Range(0, 5.0), Range.shift(this.range, 3));
 	}
 	
 	/**
@@ -131,7 +134,7 @@ public class TestShiftNoCross {
 	@Test(timeout=DEFAULT_TIMEOUT) 
 	public void testSpanningRangeNegativeShiftBlocksAtZero() {
 		this.spanningSetup();
-		assertEquals("Test blocking negative shift of spanning range", new Range(-4, 0), Range.shift(this.range, -3));
+		assertEquals("Test blocking negative shift of spanning range", new Range(-5.0, 0), Range.shift(this.range, -3));
 	}
 	
 	/**

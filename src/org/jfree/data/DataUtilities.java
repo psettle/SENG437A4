@@ -140,7 +140,7 @@ public abstract class DataUtilities {
      */
     public static Number[] createNumberArray(double[] data) {
         if (data == null) {
-            throw new IllegalArgumentException("Null 'data' argument.");   
+            throw new InvalidParameterException("Null 'data' argument.");   
         }
         Number[] result = new Number[data.length];
         for (int i = 0; i < data.length; i++) {
@@ -161,11 +161,14 @@ public abstract class DataUtilities {
      */
     public static Number[][] createNumberArray2D(double[][] data) {
         if (data == null) {
-            throw new IllegalArgumentException("Null 'data' argument.");   
+            throw new InvalidParameterException("Null 'data' argument.");   
         }
         int l1 = data.length;
         Number[][] result = new Number[l1][];
         for (int i = 0; i < l1; i++) {
+        	if (data[i] == null) {
+                throw new InvalidParameterException("Null 'data' argument.");   
+            }
             result[i] = createNumberArray(data[i]);
         }
         return result;
