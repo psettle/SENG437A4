@@ -13,6 +13,7 @@ import org.junit.runners.Suite;
 	TestShiftNoCross.class,
 	TestCombine.class,
 	TestConstrain.class,
+	TestEquals.class,
 })
 
 

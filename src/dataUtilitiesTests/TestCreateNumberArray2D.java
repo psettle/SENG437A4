@@ -26,7 +26,7 @@ public class TestCreateNumberArray2D {
 	/**
 	 * This test checks for the proper exception being thrown when a row in the matrix is null
 	 */
-	@Test (expected = InvalidParameterException.class, timeout = DEFAULT_TIMEOUT)
+	@Test (expected = InvalidParameterException.class)//, timeout = DEFAULT_TIMEOUT)
 	public void test_With_Row_Argument_Null() {
 		
 		double[][] testArr = {{7.7}, {88.66, 444.4, 6.6}, null, {-44.3, 0.00002}};

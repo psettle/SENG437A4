@@ -42,7 +42,25 @@ public class TestGetRowTotal {
 			}
 		});
 		
-		DataUtilities.calculateColumnTotal(this.values, 3);
+		DataUtilities.calculateRowTotal(this.values, 3);
+	}
+	
+	/**
+	 * Tests summing a row index that is out of range in the positive direction
+	 */
+	@Test(expected=IndexOutOfBoundsException.class, timeout=DEFAULT_TIMEOUT)
+	public void testRowBarelyTooLarge() {
+		
+		mockingContext.checking(new Expectations() {
+			{
+				oneOf(values).getRowCount();
+				will(returnValue(5));
+				atLeast(0).of(values).getColumnCount();
+				will(returnValue(0));
+			}
+		});
+		
+		DataUtilities.calculateRowTotal(this.values, 5);
 	}
 	
 	/**
@@ -60,7 +78,45 @@ public class TestGetRowTotal {
 			}
 		});
 		
-		DataUtilities.calculateColumnTotal(this.values, -1);
+		DataUtilities.calculateRowTotal(this.values, -1);
+	}
+	
+	/**
+	 * Tests summing a row index that is in the valid range
+	 */
+	@Test(timeout=DEFAULT_TIMEOUT)
+	public void testRowBarelyValidLowEnd() {
+		
+		mockingContext.checking(new Expectations() {
+			{
+				oneOf(values).getRowCount();
+				will(returnValue(5));
+				atLeast(0).of(values).getColumnCount();
+				will(returnValue(0));
+			}
+		});
+		
+		DataUtilities.calculateRowTotal(this.values, 0);
+		//the assertion here is no exception
+	}
+	
+	/**
+	 * Tests summing a row index that is in the valid range
+	 */
+	@Test(timeout=DEFAULT_TIMEOUT)
+	public void testRowBarelyValidHighEnd() {
+		
+		mockingContext.checking(new Expectations() {
+			{
+				oneOf(values).getRowCount();
+				will(returnValue(5));
+				atLeast(0).of(values).getColumnCount();
+				will(returnValue(0));
+			}
+		});
+		
+		DataUtilities.calculateRowTotal(this.values, 4);
+		//the assertion here is no exception
 	}
 	
 	/**

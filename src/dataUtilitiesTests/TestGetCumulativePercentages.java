@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import org.jfree.data.DataUtilities;
 import org.jfree.data.KeyedValues;
 import java.util.List;
+import java.security.InvalidParameterException;
 import java.util.Arrays;
 
 import org.jmock.Expectations;
@@ -272,7 +273,7 @@ public class TestGetCumulativePercentages {
 	 * This test Checks for throwing of InvalidParameterException given NaN values
 	 * in the data input.
 	 */
-	@Test(expected=java.security.InvalidParameterException.class, timeout=DEFAULT_TIMEOUT)
+	@Test(expected=InvalidParameterException.class, timeout=DEFAULT_TIMEOUT)
 	public void test_NaNValue_KeyedValues_exception() {
 		
 		mockingContext.checking(new Expectations() {
@@ -291,6 +292,75 @@ public class TestGetCumulativePercentages {
 
 		DataUtilities.getCumulativePercentages(this.values);
 
+	}
+	
+	/**
+	 * Tests boundary conditions on the values in Values2D
+	 */
+	@Test(timeout=DEFAULT_TIMEOUT)
+	public void test_Barely_Valid_Values() {
+		mockingContext.checking(new Expectations() {
+			{
+			allowing(values).getKeys();
+			will(returnValue(Arrays.asList(0,1) ));
+			allowing(values).getItemCount();
+			will(returnValue(2));
+			
+			allowing(values).getValue(new Integer(0));
+			will(returnValue(0.00000001));
+			allowing(values).getValue(new Integer(1));
+			will(returnValue(0.00000001));
+			}
+		});
+
+
+		KeyedValues result = DataUtilities.getCumulativePercentages(this.values);
+		
+		assertDoubleListEquals("Testing cumulative percentages with barely valid KeyedValues",
+						Arrays.asList(0.5, 1.0), 
+								Arrays.asList(
+								result.getValue(result.getKey(0)),
+								result.getValue(result.getKey(1))));
+	}
+	
+	/**
+	 * Tests boundary conditions on the values in Values2D
+	 */
+	@Test(timeout=DEFAULT_TIMEOUT, expected=InvalidParameterException.class)
+	public void test_Barely_Invalid_Value_Negative() {
+		mockingContext.checking(new Expectations() {
+			{
+			allowing(values).getKeys();
+			will(returnValue(Arrays.asList(0) ));
+			allowing(values).getItemCount();
+			will(returnValue(1));
+			
+			allowing(values).getValue(new Integer(0));
+			will(returnValue(-0.00000001));
+			}
+		});
+		
+		DataUtilities.getCumulativePercentages(this.values);
+	}
+	
+	/**
+	 * Tests boundary conditions on the values in Values2D
+	 */
+	@Test(timeout=DEFAULT_TIMEOUT, expected=InvalidParameterException.class)
+	public void test_Barely_Invalid_Value_Zero() {
+		mockingContext.checking(new Expectations() {
+			{
+			allowing(values).getKeys();
+			will(returnValue(Arrays.asList(0) ));
+			allowing(values).getItemCount();
+			will(returnValue(1));
+			
+			allowing(values).getValue(new Integer(0));
+			will(returnValue(0.0));
+			}
+		});
+		
+		DataUtilities.getCumulativePercentages(this.values);
 	}
 	
 	/**

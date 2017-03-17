@@ -228,11 +228,9 @@ public abstract class DataUtilities {
         double runningTotal = 0.0;
         for(Comparable key : keys) {
         	Number num = data.getValue(key);
-        	if(num != null && num.doubleValue() > 0.0) {
-        		runningTotal += num.doubleValue();
-        	} else {
-        		throw new InvalidParameterException();
-        	}
+        	//already checked for validity
+        	runningTotal += num.doubleValue();
+        	
         	result.addValue(key, new Double(runningTotal / total));
         }
         

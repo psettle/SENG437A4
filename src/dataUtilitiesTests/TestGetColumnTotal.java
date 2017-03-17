@@ -44,6 +44,64 @@ public class TestGetColumnTotal {
 	}
 	
 	/**
+	 * Tests trying to get the total for a column that is out of range in the positive direction
+	 */
+	@Test(expected=IndexOutOfBoundsException.class, timeout=DEFAULT_TIMEOUT)
+	public void testColumnBarelyTooLarge() {
+		
+		mockingContext.checking(new Expectations() {
+			{
+				atLeast(0).of(values).getRowCount();
+				will(returnValue(0));
+				oneOf(values).getColumnCount();
+				will(returnValue(5));
+			}
+		});
+		
+		DataUtilities.calculateColumnTotal(this.values, 5);
+	}
+	
+	/**
+	 * Tests trying to get the total for a column that is out of range in the positive direction
+	 */
+	@Test(timeout=DEFAULT_TIMEOUT)
+	public void testColumnBarelyValidLowEnd() {
+		
+		mockingContext.checking(new Expectations() {
+			{
+				atLeast(0).of(values).getRowCount();
+				will(returnValue(0));
+				oneOf(values).getColumnCount();
+				will(returnValue(5));
+			}
+		});
+		
+		DataUtilities.calculateColumnTotal(this.values, 0);
+		
+		//the assert here is not throwing an exception
+	}
+	
+	/**
+	 * Tests trying to get the total for a column that is out of range in the positive direction
+	 */
+	@Test(timeout=DEFAULT_TIMEOUT)
+	public void testColumnBarelyValidHighEnd() {
+		
+		mockingContext.checking(new Expectations() {
+			{
+				atLeast(0).of(values).getRowCount();
+				will(returnValue(0));
+				oneOf(values).getColumnCount();
+				will(returnValue(5));
+			}
+		});
+		
+		DataUtilities.calculateColumnTotal(this.values, 4);
+		
+		//the assert here is not throwing an exception
+	}
+	
+	/**
 	 * Tests trying to sum a column that is out of range in the bottom direction
 	 */
 	@Test(expected = IndexOutOfBoundsException.class, timeout=DEFAULT_TIMEOUT)
