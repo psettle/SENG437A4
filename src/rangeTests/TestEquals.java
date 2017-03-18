@@ -20,7 +20,7 @@ public class TestEquals {
 	/**
 	 * Tests that two identical ranges are considered equal
 	 */
-	//@Test(timeout=DEFAULT_TIMEOUT)
+	@Test(timeout=DEFAULT_TIMEOUT)
 	public void testEqualRanges() {
 		assertTrue("Identical Ranges", new Range(-3, 4).equals(new Range(-3, 4)));
 	}
@@ -28,7 +28,7 @@ public class TestEquals {
 	/**
 	 * Tests that the wrong object type is not equal to a range
 	 */
-	//@Test(timeout=DEFAULT_TIMEOUT)
+	@Test(timeout=DEFAULT_TIMEOUT)
 	public void testWrongObjectType() {
 		assertFalse("Wrong object type", new Range(-3, 4).equals(new Integer(4)));
 	}
@@ -36,7 +36,7 @@ public class TestEquals {
 	/**
 	 * Tests different lower bounds on ranges
 	 */
-	//@Test(timeout=DEFAULT_TIMEOUT)
+	@Test(timeout=DEFAULT_TIMEOUT)
 	public void testWrongLowerBound() {
 		assertFalse("Identical Ranges", new Range(-3, 4).equals(new Range(-4, 4)));
 	}
@@ -44,7 +44,7 @@ public class TestEquals {
 	/**
 	 * Tests different upper bounds on rnages
 	 */
-	//@Test(timeout=DEFAULT_TIMEOUT)
+	@Test(timeout=DEFAULT_TIMEOUT)
 	public void testWrongUpperBound() {
 		assertFalse("Identical Ranges", new Range(-3, 4).equals(new Range(-3, 5)));
 	}

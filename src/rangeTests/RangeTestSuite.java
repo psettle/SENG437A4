@@ -14,6 +14,7 @@ import org.junit.runners.Suite;
 	TestCombine.class,
 	TestConstrain.class,
 	TestEquals.class,
+	TestRange.class,
 })
 
 

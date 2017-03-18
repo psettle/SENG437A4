@@ -46,7 +46,7 @@ private static final int DEFAULT_TIMEOUT = 2000;
 	/**
 	 * Tests combine when the first provided range surrounds the second
 	 */
-	//@Test(timeout=DEFAULT_TIMEOUT)
+	@Test(timeout=DEFAULT_TIMEOUT)
 	public void testFirstRangeDominant() {
 		assertEquals("Two valid ranges were combined wrong", new Range(-3, 3), Range.combine(new Range(-3, 3), new Range(-1, 1)));
 	}
@@ -54,7 +54,7 @@ private static final int DEFAULT_TIMEOUT = 2000;
 	/**
 	 * Tests combine when the first provided range surrounds the second
 	 */
-	//@Test(timeout=DEFAULT_TIMEOUT)
+	@Test(timeout=DEFAULT_TIMEOUT)
 	public void testSecondRangeDominant() {
 		assertEquals("Two valid ranges were combined wrong", new Range(-3, 3), Range.combine(new Range(-1, 1), new Range(-3, 3)));
 	}

@@ -153,4 +153,40 @@ public class TestShiftNoCross {
 	public void testNullShift() {
 		Range.shift(null, 0);
 	}
+	
+	@Test(timeout=DEFAULT_TIMEOUT)
+	public void testShiftingRangeAtZeroPositive() {
+		Range result = Range.shift(new Range(0,0), 0.1);
+		
+		assertEquals("Testing shifting a range at zero", new Range(0.1, 0.1), result);
+		
+	}
+	
+	@Test(timeout=DEFAULT_TIMEOUT)
+	public void testShiftingRangeAtZeroNegative() {
+		Range result = Range.shift(new Range(0,0), -0.1);
+		
+		assertEquals("Testing shifting a range at zero", new Range(-0.1, -0.1), result);
+		
+	}
+	
+	@Test(timeout=DEFAULT_TIMEOUT)
+	public void testShiftingRangeSlightlyAboveZero() {
+		Range result = Range.shift(new Range(0.5,0.5), -0.1);
+		
+		assertEquals("Testing shifting a range at zero", new Range(0.4, 0.4), result);
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
