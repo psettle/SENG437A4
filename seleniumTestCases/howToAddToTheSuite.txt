@@ -1,0 +1,5 @@
+In Selenium IDE
+	File -> Open Test Suite -> "amazonTestSuite"
+In "Test Case" Panel
+	Right Click -> Add Test Case "yourTestCase.html"
+	File -> Save Test Suite
