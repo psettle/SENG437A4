@@ -11,6 +11,8 @@
 <tr><td><a href="testAddToCart1Item.html">testAddToCart1Item</a></td></tr>
 <tr><td><a href="testAddToCartNItem.html">testAddToCartNItem</a></td></tr>
 <tr><td><a href="testDeleteFromCart.html">testDeleteFromCart</a></td></tr>
+<tr><td><a href="testNameChange.html">testNameChange</a></td></tr>
+<tr><td><a href="testAddAddress.html">testAddAddress</a></td></tr>
 </tbody></table>
 </body>
 </html>
