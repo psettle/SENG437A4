@@ -4,12 +4,12 @@
 <head profile="http://selenium-ide.openqa.org/profiles/test-case">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="selenium.base" href="https://www.amazon.ca/" />
-<title>testDeleteFromCart</title>
+<title>testInvalidAccount</title>
 </head>
 <body>
 <table cellpadding="1" cellspacing="1" border="1">
 <thead>
-<tr><td rowspan="1" colspan="3">testDeleteFromCart</td></tr>
+<tr><td rowspan="1" colspan="3">testInvalidAccount</td></tr>
 </thead><tbody>
 <tr>
 	<td>open</td>
@@ -24,12 +24,12 @@
 <tr>
 	<td>type</td>
 	<td>id=ap_email</td>
-	<td>horsepower746w@gmail.com</td>
+	<td>notARealAccount@fake.ca</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=ap_password</td>
-	<td>AwkwardAardvark420</td>
+	<td>123456</td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
@@ -37,54 +37,14 @@
 	<td></td>
 </tr>
 <tr>
-	<td>verifyText</td>
-	<td>id=nav-cart-count</td>
-	<td>0</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>id=twotabsearchtextbox</td>
-	<td>ipad</td>
-</tr>
-<tr>
-	<td>clickAndWait</td>
-	<td>css=input.nav-input</td>
-	<td></td>
-</tr>
-<tr>
-	<td>clickAndWait</td>
-	<td>//li[@id='result_0']/div/div[3]/div/a/h2</td>
-	<td></td>
-</tr>
-<tr>
-	<td>clickAndWait</td>
-	<td>id=add-to-cart-button-ubb</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyText</td>
-	<td>id=nav-cart-count</td>
-	<td>1</td>
-</tr>
-<tr>
-	<td>clickAndWait</td>
-	<td>css=span.nav-cart-icon.nav-sprite</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>name=submit.delete.C2HZASK18OZSPL</td>
-	<td></td>
-</tr>
-<tr>
-	<td>clickAndWait</td>
-	<td>css=span.nav-logo-base.nav-sprite</td>
+	<td>assertTitle</td>
+	<td>Amazon Sign In</td>
 	<td></td>
 </tr>
 <tr>
 	<td>assertText</td>
-	<td>id=nav-cart-count</td>
-	<td>0</td>
+	<td>css=li</td>
+	<td>We cannot find an account with that e-mail address</td>
 </tr>
 </tbody></table>
 </body>
