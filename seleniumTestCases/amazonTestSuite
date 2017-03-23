@@ -18,6 +18,8 @@
 <tr><td><a href="testIncorrectPassword.html">testIncorrectPassword</a></td></tr>
 <tr><td><a href="testSearchForValidItem.html">testSearchForValidItem</a></td></tr>
 <tr><td><a href="testSearchForInvalidItem.html">testSearchForInvalidItem</a></td></tr>
+<tr><td><a href="testNameChangeBlankName.html">testNameChangeBlankName</a></td></tr>
+<tr><td><a href="testNameChangeSameName.html">testNameChangeSameName</a></td></tr>
 </tbody></table>
 </body>
 </html>
