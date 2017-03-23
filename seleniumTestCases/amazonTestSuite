@@ -18,8 +18,14 @@
 <tr><td><a href="testIncorrectPassword.html">testIncorrectPassword</a></td></tr>
 <tr><td><a href="testSearchForValidItem.html">testSearchForValidItem</a></td></tr>
 <tr><td><a href="testSearchForInvalidItem.html">testSearchForInvalidItem</a></td></tr>
+<<<<<<< HEAD
 <tr><td><a href="testNameChangeBlankName.html">testNameChangeBlankName</a></td></tr>
 <tr><td><a href="testNameChangeSameName.html">testNameChangeSameName</a></td></tr>
+=======
+<tr><td><a href="testAddInvalidAddress.html">testAddInvalidAddress</a></td></tr>
+<tr><td><a href="testNameChangeBlank.html">testNameChangeBlank</a></td></tr>
+<tr><td><a href="testNameChangeSame.html">testNameChangeSame</a></td></tr>
+>>>>>>> 8d29a1fbc6084caf8cc77a5061ab76c57b2d3f6b
 </tbody></table>
 </body>
 </html>
