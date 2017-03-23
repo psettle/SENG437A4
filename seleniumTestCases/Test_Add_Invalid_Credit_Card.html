@@ -13,33 +13,8 @@
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/</td>
+	<td>/ap/signin?_encoding=UTF8&amp;openid.assoc_handle=caflex&amp;openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&amp;openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&amp;openid.mode=checkid_setup&amp;openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0&amp;openid.ns.pape=http%3A%2F%2Fspecs.openid.net%2Fextensions%2Fpape%2F1.0&amp;openid.pape.max_auth_age=0&amp;openid.return_to=https%3A%2F%2Fwww.amazon.ca%2Fgp%2Fyourstore%2Fhome%3Fie%3DUTF8%26action%3Dsign-out%26path%3D%252Fgp%252Fyourstore%252Fhome%26ref_%3Dnav_youraccount_signout%26signIn%3D1%26useRedirectOnSuccess%3D1</td>
 	<td></td>
-</tr>
-<tr>
-	<td>clickAndWait</td>
-	<td>//div[@id='nav-flyout-yourAccount']/div[3]/a/span</td>
-	<td></td>
-</tr>
-<tr>
-	<td>clickAndWait</td>
-	<td>link=Add a Credit Card</td>
-	<td></td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>id=ap_email</td>
-	<td></td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>id=ap_password</td>
-	<td></td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>id=ap_email</td>
-	<td>horsepower746w@gmail.com</td>
 </tr>
 <tr>
 	<td>type</td>
@@ -47,8 +22,23 @@
 	<td>AwkwardAardvark420</td>
 </tr>
 <tr>
+	<td>type</td>
+	<td>id=ap_email</td>
+	<td>horsepower746w@gmail.com</td>
+</tr>
+<tr>
 	<td>clickAndWait</td>
 	<td>id=signInSubmit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#nav-link-yourAccount &gt; span.nav-line-2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Add a Credit Card</td>
 	<td></td>
 </tr>
 <tr>
@@ -102,11 +92,10 @@
 	<td></td>
 </tr>
 <tr>
-	<td>verifyText</td>
+	<td>assertText</td>
 	<td>css=td.small &gt; font</td>
 	<td>Card number is not correct.</td>
 </tr>
-
 </tbody></table>
 </body>
 </html>
