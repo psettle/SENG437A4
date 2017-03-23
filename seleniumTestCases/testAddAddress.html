@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://www.amazon.ca/" />
+<title>testAddAddress</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">testAddAddress</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/ap/signin?_encoding=UTF8&amp;openid.assoc_handle=caflex&amp;openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&amp;openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&amp;openid.mode=checkid_setup&amp;openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0&amp;openid.ns.pape=http%3A%2F%2Fspecs.openid.net%2Fextensions%2Fpape%2F1.0&amp;openid.pape.max_auth_age=0&amp;openid.return_to=https%3A%2F%2Fwww.amazon.ca%2Fgp%2Fyourstore%2Fhome%3Fie%3DUTF8%26action%3Dsign-out%26path%3D%252Fgp%252Fyourstore%252Fhome%26ref_%3Dnav_youraccount_signout%26signIn%3D1%26useRedirectOnSuccess%3D1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTitle</td>
+	<td>Amazon Sign In</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ap_email</td>
+	<td>horsepower746w@gmail.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ap_password</td>
+	<td>AwkwardAardvark420</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=signInSubmit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseOver</td>
+	<td>css=#nav-link-yourAccount &gt; span.nav-line-2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//div[@id='nav-flyout-yourAccount']/div[2]/a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Manage Your Address Book</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=h2.a-color-tertiary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.a-button-text.a-declarative</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.a-popover-inner.a-lgtbox-vertical-scroll &gt; ul.a-nostyle.a-list-link &gt; li.a-dropdown-item &gt; #address-ui-widgets-countryCode-dropdown-nativeId_37</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=address-ui-widgets-enterAddressFullName</td>
+	<td>Fake Street</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=address-ui-widgets-enterAddressLine1</td>
+	<td>276 Macewan Park View NW</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=address-ui-widgets-enterAddressCity</td>
+	<td>Calgary</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#address-ui-widgets-enterAddressStateOrRegion &gt; span.a-button-inner &gt; span.a-button-text.a-declarative &gt; span.a-dropdown-prompt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=address-ui-widgets-enterAddressStateOrRegion-dropdown-nativeId_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=address-ui-widgets-enterAddressPostalCode</td>
+	<td>T3K 4G7</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=address-ui-widgets-enterAddressPhoneNumber</td>
+	<td>4031234567</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input.a-button-input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=address-ui-widgets-FullName</td>
+	<td>Fake Street</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=address-ui-widgets-AddressLineOne</td>
+	<td>276 Macewan Park View NW</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=address-ui-widgets-CityStatePostalCode</td>
+	<td>Calgary, Alberta T3K 4G7</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=address-ui-widgets-Country</td>
+	<td>Canada</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=address-ui-widgets-PhoneNumber</td>
+	<td>Phone number: 4031234567</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.a-declarative</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input.a-button-input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotText</td>
+	<td>id=address-ui-widgets-FullName</td>
+	<td>Fake Street</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#nav-item-signout &gt; span.nav-text</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

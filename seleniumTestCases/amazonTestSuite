@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+  <title>Test Suite</title>
+</head>
+<body>
+<table id="suiteTable" cellpadding="1" cellspacing="1" border="1" class="selenium"><tbody>
+<tr><td><b>Test Suite</b></td></tr>
+<tr><td><a href="testAddToCart1Item.html">testAddToCart1Item</a></td></tr>
+<tr><td><a href="testAddToCartNItem.html">testAddToCartNItem</a></td></tr>
+<tr><td><a href="testDeleteFromCart.html">testDeleteFromCart</a></td></tr>
+<tr><td><a href="testNameChange.html">testNameChange</a></td></tr>
+<tr><td><a href="testAddAddress.html">testAddAddress</a></td></tr>
+<tr><td><a href="testValidAccountAndPassword.html">testValidAccountAndPassword</a></td></tr>
+<tr><td><a href="testInvalidAccount.html">testInvalidAccount</a></td></tr>
+<tr><td><a href="testIncorrectPassword.html">testIncorrectPassword</a></td></tr>
+<tr><td><a href="testSearchForValidItem.html">testSearchForValidItem</a></td></tr>
+<tr><td><a href="testSearchForInvalidItem.html">testSearchForInvalidItem</a></td></tr>
+<tr><td><a href="testNameChangeBlankName.html">testNameChangeBlankName</a></td></tr>
+<tr><td><a href="testNameChangeSameName.html">testNameChangeSameName</a></td></tr>
+<tr><td><a href="testAddInvalidAddress.html">testAddInvalidAddress</a></td></tr>
+<tr><td><a href="testNameChangeBlank.html">testNameChangeBlank</a></td></tr>
+<tr><td><a href="testNameChangeSame.html">testNameChangeSame</a></td></tr>
+<tr><td><a href="Test_Change_EN_to_FR_And_FR_to_EN.html">Test_Change_EN_to_FR_And_FR_to_EN</a></td></tr>
+<tr><td><a href="Test_Add_Invalid_Credit_Card.html">Test_Add_Invalid_Credit_Card</a></td></tr>
+<tr><td><a href="testAddInvalidCreditCardBlankFields.html">testAddInvalidCreditCardBlankFields</a></td></tr>
+</tbody></table>
+</body>
+</html>
